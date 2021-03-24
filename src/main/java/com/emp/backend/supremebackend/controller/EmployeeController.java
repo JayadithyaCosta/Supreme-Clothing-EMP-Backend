@@ -3,10 +3,7 @@ package com.emp.backend.supremebackend.controller;
 import com.emp.backend.supremebackend.model.Employee;
 import com.emp.backend.supremebackend.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,4 +23,9 @@ public class EmployeeController {
     }
 
 
+    //create employee rest api
+    @PostMapping("/employees")
+    public Employee createEmployee(@RequestBody Employee employee){
+        return employeeRepository.save(employee);
+    }
 }
